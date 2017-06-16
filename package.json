@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node ./start.js",
-    "watch": "nodemon ./start.js",
+    "watch": "nodemon ./start.js"
   },
   "dependencies": {
     "axios": "^0.16.2",

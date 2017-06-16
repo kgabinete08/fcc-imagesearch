@@ -9,9 +9,13 @@ exports.homePage = (req, res) => {
 
 exports.search = async (req, res) => {
   const searchTerm = req.params.term;
+  let offset = req.query.offset;
+  if (!req.query.offset || req.query.offset == 0) {
+    offset = 1;
+  }
   await new Search({term: searchTerm}).save();
   // prettier-ignore
-  const searchRequest = await axios.get(`https://www.googleapis.com/customsearch/v1?q=${searchTerm}&cx=${process.env.CSE_ID}&safe=medium&searchType=image&start=${req.query.offset}&fields=items(image(contextLink%2CthumbnailLink)%2Clink%2Csnippet)%2Curl&key=${process.env.SEARCH_KEY}`);
+  const searchRequest = await axios.get(`https://www.googleapis.com/customsearch/v1?q=${searchTerm}&cx=${process.env.CSE_ID}&safe=medium&searchType=image&start=${offset}&fields=items(image(contextLink%2CthumbnailLink)%2Clink%2Csnippet)%2Curl&key=${process.env.SEARCH_KEY}`);
   const resultData = searchRequest.data.items;
   const results = parseResults(resultData);
   res.json(results);

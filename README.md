@@ -1,6 +1,6 @@
 ## Imagesearch Abstraction Microservice
 
-This project is part of the backend certification for **freeCodecamp**. If you are working on this same project from freeCodecamp, feel free to have a look, but please no copy ~~pasta~~ pasting. :smile:
+This project is part of the backend certification for **freeCodeCamp**. If you are working on this same project from freeCodeCamp, feel free to have a look, but please no copy ~~pasta~~ pasting. :smile:
 
 `npm start` to start the app
 
